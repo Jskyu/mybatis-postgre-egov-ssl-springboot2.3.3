@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* ========== index ========== */
+
+.container{
+    height: 950px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: #f4f4f4;
+}
+
+/* === 조회 조건 === */
+.condition{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 60px;
+    background: white;
+}
+
+.condition input[type=date]{
+    border: 2px #666666 solid;
+    border-radius: 0;
+}
+
+/* === 그래프 === */
+.graph{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 400px;
+    background: white;
+}
+
+/* === 테이블 === */
+.table{
+    width: 90%;
+    height: 400px;
+    max-height: 400px;
+    background: white;
+}

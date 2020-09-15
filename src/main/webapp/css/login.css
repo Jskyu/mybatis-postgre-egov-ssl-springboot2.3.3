@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+/* ========== login ========== */
+
+hr{
+    width:450px;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: linear-gradient(to bottom, #171d33 40%, #f4f4f4 0%);
+}
+
+
+/* 로그인 폼 */
+.login_form{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 600px;
+    height: auto;
+    background: white;
+    /*box-shadow: 0px 0px 0px 4px rgba(0,0,0,0.1);*/
+}
+
+.login_form input, .login_form button{
+    width: 420px;
+    height: 30px;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    padding: 15px 20px;
+    outline: none;
+    font-family: 'SCDream3', sans-serif;
+    border-radius: 0;
+}
+
+.login_form input[type=text]:focus, .login_form input[type=password]:focus{
+    border-bottom: 2px solid #24406f;
+}
+
+.login_form #login{
+    text-align: center;
+    background: #24406f;
+}
+
+.login_form #signup{
+    text-align: center;
+    background: #577b9f;
+}
+
+.login_form ul{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.login_form ul li{
+    text-decoration: underline;
+}
+
+.login_form ul li:hover{
+    cursor: pointer;
+}

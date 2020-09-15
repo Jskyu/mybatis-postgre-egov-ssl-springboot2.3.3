@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.repository.UserDAO">
+    <!--
+        selectUsersByCountry()메서드를 호출하면 실행할 SELECT문이며,
+        UserDTO 객체를 파라미터로 받아, UserDTO객체를 반환합니다.
+    -->
+    <select id="selectUsersByCountry" parameterType="com.example.demo.dto.UserDTO"
+            resultType="com.example.demo.dto.UserDTO">
+        SELECT U.ID, U.USERNAME, U.PASSWORD, U.COUNTRY
+        FROM USER_ENTITY U
+        WHERE COUNTRY = #{country}
+    </select>
+<!--
+        findByUsername()메서드를 호출하면 실행할 SELECT문이며,
+        UserDTO 객체를 파라미터로 받아, UserDTO객체를 반환합니다.
+-->
+    <select id="findByUsername" parameterType="com.example.demo.dto.UserDTO" resultType="com.example.demo.dto.UserDTO">
+        SELECT U.ID, U.USERNAME, U.PASSWORD, U.COUNTRY
+        FROM USER_ENTITY U
+        WHERE USERNAME = #{username}
+    </select>
+    <!--
+        selectAll()메서드를 호출하면 실행할 SELECT문이며, UserDTO객체를 반환합니다.
+    -->
+    <select id="selectAll" parameterType="com.example.demo.dto.UserDTO" resultType="com.example.demo.dto.UserDTO">
+        SELECT *
+        FROM USER_ENTITY
+    </select>
+    <!--
+        selectAllCount() 메서드를 호출하면 실행할 SELECT 문이며, Integer 객체를 반환합니다.
+    -->
+    <select id="selectAllCount" parameterType="com.example.demo.dto.UserDTO" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM USER_ENTITY
+    </select>
+    <!--
+        findById() 메서드를 호출하면 실행할 SELECT 문이며,
+        Long 객체를 파라미터로 받아, UserDTO 객체를 반환합니다.
+    -->
+    <select id="findById" parameterType="java.lang.Long" resultType="com.example.demo.dto.UserDTO">
+        SELECT *
+        FROM USER_ENTITY U
+        WHERE U.ID = #{id}
+    </select>
+    <!--
+        findUserEntityByLastResultId() 메서드를 호출하면 실행할 SELECT 문이며,
+        Long 객체를 반환합니다.
+    -->
+    <select id="findUserEntityByLastResultId" resultType="java.lang.Long">
+        SELECT U.ID FROM USER_ENTITY U
+        ORDER BY U.ID DESC
+        LIMIT 1
+    </select>
+    <!--
+        createUser() 메서드를 호출하면 실행할 INSERT 문이며,
+       UserDTO 객체를 피라미터로 받습니다.
+    -->
+    <insert id="createUser" parameterType="com.example.demo.dto.UserDTO">
+        INSERT INTO USER_ENTITY
+        VALUES (#{id},  #{username}, #{password}, #{country})
+    </insert>
+    <!--
+        updateUser() 메서드를 호출하면 실행할 update 문이며,
+        UserDTO 객체를 피라미터로 받습니다.
+    -->
+    <update id="updateUser" parameterType="com.example.demo.dto.UserDTO">
+		UPDATE USER_ENTITY U
+		SET U.USERNAME = #{username}, U.COUNTRY = #{country}
+		where U.ID = #{id}
+    </update>
+    <!--
+        findById() 메서드를 호출하면 실행할 SELECT 문이며,
+        Long 객체를 파라미터로 받습니다.
+    -->
+    <delete id="removeUser" parameterType="java.lang.Long">
+		DELETE
+		FROM USER_ENTITY U
+		WHERE U.ID=#{id}
+    </delete>
+
+</mapper>
